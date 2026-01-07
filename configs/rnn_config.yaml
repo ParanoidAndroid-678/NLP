@@ -1,0 +1,34 @@
+# 数据配置
+data:
+  train_file: './data/processed/train_large.jsonl'  # 或 train_large.jsonl
+  val_file: './data/processed/val.jsonl'
+  test_file: './data/processed/test.jsonl'
+  batch_size: 64
+  max_length: 30
+
+# 模型配置
+model:
+  rnn_type: 'GRU'  # GRU 或 LSTM
+  embed_size: 256
+  hidden_size: 512
+  num_layers: 2
+  dropout: 0.3
+  attention_method: 'additive'  # dot, multiplicative, additive
+  teacher_forcing_ratio: 0.5
+
+# 训练配置
+training:
+  num_epochs: 30
+  learning_rate: 0.001
+  optimizer: 'adam'
+  patience: 5  # 早停耐心值
+
+# 解码配置
+decoding:
+  beam_size: 4  # 1表示贪心搜索
+
+# 实验类型
+experiment: 'basic_training'  # basic_training, compare_attention, compare_training_strategies, compare_rnn_types
+
+# 输出配置
+output_dir: './checkpoints/rnn_2'

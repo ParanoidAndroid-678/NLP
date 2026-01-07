@@ -1,0 +1,7 @@
+jieba
+sentencepiece
+sacrebleu
+torch
+tqdm
+numpy
+transformers

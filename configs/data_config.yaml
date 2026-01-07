@@ -1,0 +1,12 @@
+data_config:
+  # 原始数据路径
+  train_large_file: './data/raw/train_100k.jsonl'
+  val_file: './data/raw/valid.jsonl'
+  test_file: './data/raw/test.jsonl'
+  
+  # 处理参数
+  max_length: 100
+  max_vocab_size: 30000
+  min_freq: 2
+  filter_rare_words: true
+  output_dir: './data/processed'

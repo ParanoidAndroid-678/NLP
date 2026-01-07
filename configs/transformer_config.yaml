@@ -1,0 +1,45 @@
+# 数据配置
+data:
+  train_file: './data/processed/train_large.jsonl'  # 或 train_large.jsonl
+  val_file: './data/processed/val.jsonl'
+  test_file: './data/processed/test.jsonl'
+  batch_size: 64
+  max_length: 30
+
+# 模型配置
+model:
+  # 基础架构
+  d_model: 512
+  n_layers: 6
+  n_heads: 8
+  d_ff: 2048
+  dropout: 0.1
+  
+  # 架构变体
+  pos_encoding: 'absolute'  # absolute, relative
+  norm_type: 'rmsnorm'    # layernorm, rmsnorm
+  
+  # 预训练模型
+  use_pretrained: false
+  pretrained_model: 't5-small'  # t5-small, t5-base, t5-large
+
+# 训练配置
+training:
+  num_epochs: 50
+  learning_rate: 0.0003
+  optimizer: 'adamw'
+  scheduler: 'warmup'  # warmup, reduce_on_plateau, none
+  warmup_steps: 500
+  weight_decay: 0.0001
+  patience: 5
+
+# 解码配置
+decoding:
+  beam_size: 3
+  max_length: 30
+
+# 实验类型
+experiment: 'basic_training'  # basic_training, compare_position_encoding, compare_normalization, hyperparameter_sensitivity, compare_pretrained, quick_test
+
+# 输出配置
+output_dir: './checkpoints/transformer_01'

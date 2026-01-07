@@ -1,4 +1,6 @@
-
+ ### Dataset Preparation
+ `python preprocess.py`
+ 
  ### Train RNN model
  `python train_rnn.py--config configs/rnn_config.yaml`
  
